@@ -329,21 +329,26 @@ def ai_rows(it: Item, code: str, review: dict | None) -> list[dict]:
         elif a is not None and a < len(v):
             others = [i for i, x in enumerate(v) if i != a and x == "correct"]
             arguable = [i for i, x in enumerate(v) if i != a and x == "debatable"]
-            if others:
-                rows.append(_row("multi_answer", "복수 정답 의심", RULES["multi_answer"][1], "fail",
-                                 f"AI가 {', '.join(CIRCLED[i] for i in others)}도 정답으로 봤습니다 — 표시한 정답은 {CIRCLED[a]}", True))
-            elif arguable:
-                rows.append(_row("multi_answer", "복수 정답 의심", RULES["multi_answer"][1], "warn",
-                                 f"AI가 {', '.join(CIRCLED[i] for i in arguable)}을 논란의 여지가 있다고 봤습니다", True))
-            else:
-                rows.append(_row("multi_answer", "복수 정답 의심", RULES["multi_answer"][1], "pass", "다른 선지는 정답이 아니라고 봤습니다", True))
             if v[a] == "wrong":
-                rows.append(_row("answer_wrong", "표시한 정답 확인", "AI가 표시된 정답 자체를 틀렸다고 봤습니다.", "fail",
-                                 f"AI는 표시한 정답 {CIRCLED[a]}을 정답이 아니라고 봤습니다", True))
-            if 0 <= best < len(v):
-                rows.append(_row("independent_solve", "다시 풀어 보기", RULES["independent_solve"][1],
-                                 "pass" if best == a else "warn",
-                                 f"AI도 {CIRCLED[a]}을 골랐습니다" if best == a else f"AI는 {CIRCLED[best]}을 골랐습니다 — 표시한 정답은 {CIRCLED[a]}", True))
+                # the marked answer itself is wrong: that is an answer error, not a multiple-answer item
+                alt = others or ([best] if 0 <= best < len(v) and best != a else [])
+                rows.append(_row("answer_wrong", "정답 오류 의심", "AI가 직접 풀어 보니 표시한 정답이 틀렸습니다.", "fail",
+                                 f"표시한 정답 {CIRCLED[a]}은 틀렸고, {', '.join(CIRCLED[i] for i in alt)}이 정답으로 보입니다" if alt
+                                 else f"표시한 정답 {CIRCLED[a]}을 정답이 아니라고 봤습니다", True))
+            else:
+                if others:
+                    rows.append(_row("multi_answer", "복수 정답 의심", RULES["multi_answer"][1], "fail",
+                                     f"표시한 정답 {CIRCLED[a]} 말고 {', '.join(CIRCLED[i] for i in others)}도 정답으로 보입니다", True))
+                elif arguable:
+                    rows.append(_row("multi_answer", "복수 정답 의심", RULES["multi_answer"][1], "warn",
+                                     f"{', '.join(CIRCLED[i] for i in arguable)}도 논란의 여지가 있습니다", True))
+                else:
+                    rows.append(_row("multi_answer", "복수 정답 의심", RULES["multi_answer"][1], "pass", "다른 선지는 정답이 아니라고 봤습니다", True))
+                if 0 <= best < len(v):
+                    flagged = best in others or best in arguable
+                    rows.append(_row("independent_solve", "다시 풀어 보기", RULES["independent_solve"][1],
+                                     "pass" if best == a or flagged else "warn",
+                                     f"AI도 {CIRCLED[a]}을 골랐습니다" if best == a else f"AI는 {CIRCLED[best]}을 골랐습니다 — 표시한 정답은 {CIRCLED[a]}", True))
     else:
         ac = review.get("answer_correct")
         rows.append(_row("model_answer_ok", "모범 답안 정확성", "AI가 직접 풀어 보고 모범 답안이 맞는지 봅니다.",
