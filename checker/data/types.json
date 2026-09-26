@@ -1,0 +1,1212 @@
+{
+ "BLK": {
+  "korean": "빈칸 완성",
+  "description": "지문에 빈칸 1개, 들어갈 말 객관식",
+  "has_contract": true,
+  "intent": "하나의 빈칸을 문맥상 완성한다.",
+  "rules": [
+   "하나의 빈칸을 문맥상 완성한다.",
+   "정답 선지에 원문의 누락 표현을 그대로 복사하지 않는다.",
+   "정답은 원문의 핵심 의미를 보존한 영어 패러프레이즈여야 한다.",
+   "빈칸 주변 문장은 패러프레이즈 정답이 문법적으로 들어가도록 최소한으로만 조정한다.",
+   "다섯 선지는 문법적 형태와 길이를 유사하게 맞춘다."
+  ],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": 1,
+  "choice_count": 5,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "BLK_PHR": {
+  "korean": "구 단위 빈칸",
+  "description": "빈칸에 들어갈 구 단위 표현을 고르는 유형",
+  "has_contract": false,
+  "intent": "빈칸에 들어갈 구 단위 표현을 고르는 유형",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "BLK_DLG": {
+  "korean": "대화문 빈칸",
+  "description": "대화문 안의 빈칸",
+  "has_contract": false,
+  "intent": "대화문 안의 빈칸",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "BLK_SNT": {
+  "korean": "단일 문장 빈칸",
+  "description": "한 문장 안의 빈칸",
+  "has_contract": false,
+  "intent": "한 문장 안의 빈칸",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "BLK_WRD": {
+  "korean": "단어 빈칸",
+  "description": "단어/구 단위 빈칸",
+  "has_contract": true,
+  "intent": "단어 또는 매우 짧은 구 빈칸을 문맥상 완성한다.",
+  "rules": [
+   "단어 또는 매우 짧은 구 빈칸을 문맥상 완성한다.",
+   "가능하면 원문 단어의 문맥상 동의어·상위어·개념적 등가어를 사용하고 직접 복사를 피한다."
+  ],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": 1,
+  "choice_count": 5,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "BLK_MULTI": {
+  "korean": "다중 빈칸",
+  "description": "한 문항 안에 빈칸이 2개 이상 있고 조합 선지를 고르는 유형",
+  "has_contract": true,
+  "intent": "서로 구분되는 2~8개 빈칸을 하나의 순서 있는 조합 선지로 동시에 완성한다.",
+  "rules": [
+   "서로 구분되는 2~8개 빈칸을 하나의 순서 있는 조합 선지로 동시에 완성한다.",
+   "빈칸 순서가 다른 선지",
+   "빈칸 수와 값 수가 다른 선지",
+   "원문 비표적 부분의 임의 변경",
+   "정답 선지에 원문의 누락 표현을 그대로 복사하지 않는다.",
+   "정답은 원문의 핵심 의미를 보존한 영어 패러프레이즈여야 한다.",
+   "빈칸 주변 문장은 패러프레이즈 정답이 문법적으로 들어가도록 최소한으로만 조정한다.",
+   "다섯 선지는 문법적 형태와 길이를 유사하게 맞춘다."
+  ],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": 1,
+  "choice_count": 5,
+  "answer_form": "single",
+  "auxiliary": [
+   "blank_slots"
+  ]
+ },
+ "INS": {
+  "korean": "문장 삽입",
+  "description": "주어진 문장이 들어가기에 적절한 곳",
+  "has_contract": true,
+  "intent": "주어진 문장이 들어갈 적절한 문장 사이 위치를 고른다.",
+  "rules": [
+   "주어진 문장이 들어갈 적절한 문장 사이 위치를 고른다.",
+   "①(첫 문장 앞)은 피한다. 기출 실증(n=94)으로는 정답 위치가 ①4% · ②14% · ③22% · ④32% · ⑤28% 로 분포하며 ⑤(본문 마지막)는 두 번째로 흔한 정답 위치이므로 피하지 않는다."
+  ],
+  "markers_exact": 5,
+  "marker_labels": [
+   "①",
+   "②",
+   "③",
+   "④",
+   "⑤"
+  ],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": [
+   "insertion_bond"
+  ]
+ },
+ "INS_DLG": {
+  "korean": "대화문 문장 삽입",
+  "description": "대화문 안에 문장 삽입",
+  "has_contract": false,
+  "intent": "대화문 안에 문장 삽입",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "SEQ": {
+  "korean": "순서 배열",
+  "description": "단락의 올바른 순서",
+  "has_contract": true,
+  "intent": "주어진 첫 단락 뒤의 (A), (B), (C) 순서를 고른다.",
+  "rules": [
+   "주어진 첫 단락 뒤의 (A), (B), (C) 순서를 고른다."
+  ],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": [
+   "cohesion_links"
+  ]
+ },
+ "SEQ_DLG": {
+  "korean": "대화 순서 배열",
+  "description": "대화의 올바른 순서",
+  "has_contract": false,
+  "intent": "대화의 올바른 순서",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "GRM": {
+  "korean": "어법",
+  "description": "지문 내 5개 밑줄 중 어법상 틀린 것",
+  "has_contract": true,
+  "intent": "다섯 개의 짧은 어법 대상 중 어법상 틀린 하나를 판별한다.",
+  "rules": [
+   "다섯 개의 짧은 어법 대상 중 어법상 틀린 하나를 판별한다.",
+   "본문의 ①~⑤ 원번호와 대상 구 전체를 bold+underline으로 렌더링하고, 선지는 같은 문자열을 그대로 재현한다.",
+   "기본 평가 단위는 절이나 문장 전체가 아니라 문법 관계가 드러나는 매우 짧은 구이다.",
+   "to처럼 기능어 한 단어만 단독으로 선택하지 않는다.",
+   "to search처럼 to부정사 전체, of which처럼 전치사+관계대명사, searching for처럼 분사+보어를 함께 선택한다.",
+   "수일치는 주어와 동사의 관계를 판단할 수 있도록 동사구 또는 최소한 의미 있는 결합 단위를 선택한다.",
+   "긴 절·문장 단위 표적은 실제 reference item이 요구하는 명시적 profile에서만 예외적으로 허용한다."
+  ],
+  "markers_exact": 5,
+  "marker_labels": [
+   "①",
+   "②",
+   "③",
+   "④",
+   "⑤"
+  ],
+  "answer_count": 1,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "VOC": {
+  "korean": "어휘 (밑줄 5개)",
+  "description": "지문 내 5개 밑줄 어휘 중 부적절한 것",
+  "has_contract": true,
+  "intent": "본문 안의 다섯 밑줄 어휘 중 문맥상 부적절한 하나를 판별한다.",
+  "rules": [
+   "본문 안의 다섯 밑줄 어휘 중 문맥상 부적절한 하나를 판별한다.",
+   "기본 표시에서는 본문의 각 대상 단어 하나에 ①~⑤ 원번호를 붙이고 단어만 bold+underline으로 렌더링한다. 기본 선지는 다섯 원문 단어를 정확히 쓴다.",
+   "밑줄 표적이 한 개이고 그 동의어를 고르면 VOC_PSG_SYN이다.",
+   "본문이 한 문장이고 한 표적의 동의어를 고르면 VOC_SNT이다.",
+   "(A)(B)(C) 후보 조합을 고르면 VOC_CTX이다.",
+   "한 표현의 함축적 의미를 문장·구 패러프레이즈로 고르면 IMP이다.",
+   "코드 고정 발문: 다음 글의 밑줄 친 부분 중, 문맥상 낱말의 쓰임이 적절하지 않은 것은?",
+   "선지 ①~⑤는 본문 속 다섯 밑줄 단어를 읽기 순서대로 정확히 재현한다."
+  ],
+  "markers_exact": 5,
+  "marker_labels": [
+   "①",
+   "②",
+   "③",
+   "④",
+   "⑤"
+  ],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "VOC_SNT": {
+  "korean": "단일 문장 동의어",
+  "description": "한 문장의 밑줄 단어와 가장 가까운 뜻",
+  "has_contract": true,
+  "intent": "범위 지문 낱말로 만든 문장 빈칸에 알맞은 낱말 하나를 고른다.",
+  "rules": [
+   "범위 지문 낱말로 만든 문장 빈칸에 알맞은 낱말 하나를 고른다.",
+   "코드 고정 발문: 다음 문장의 빈칸에 들어갈 낱말로 가장 적절한 것은?",
+   "대광 G1 기출 1번 관찰 형태"
+  ],
+  "markers_exact": 0,
+  "marker_labels": [],
+  "answer_count": 1,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": [
+   "target_word",
+   "contextual_sense",
+   "definition_evidence"
+  ]
+ },
+ "VOC_CTX": {
+  "korean": "문맥 어휘 조합",
+  "description": "(A)(B)(C) 네모 안 단어 조합",
+  "has_contract": true,
+  "intent": "지문 속 (A), (B), (C)의 두 대안씩을 문맥에 맞게 결정하고 세 값을 모두 담은 조합 선지 하나를 고른다.",
+  "rules": [
+   "지문 속 (A), (B), (C)의 두 대안씩을 문맥에 맞게 결정하고 세 값을 모두 담은 조합 선지 하나를 고른다."
+  ],
+  "markers_exact": 3,
+  "marker_labels": [
+   "(A)",
+   "(B)",
+   "(C)"
+  ],
+  "answer_count": 1,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": [
+   "alternative_blocks"
+  ]
+ },
+ "VOC_WRD": {
+  "korean": "단어 동의어",
+  "description": "단독 단어의 동의어",
+  "has_contract": false,
+  "intent": "단독 단어의 동의어",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "VOC_DEF": {
+  "korean": "영영 풀이 매칭",
+  "description": "영영 정의와 단어 매칭",
+  "has_contract": true,
+  "intent": "문단 속 표적 단어 하나와 의미가 같은 영영 정의 또는 풀이를 고른다.",
+  "rules": [
+   "문단 속 표적 단어 하나와 의미가 같은 영영 정의 또는 풀이를 고른다."
+  ],
+  "markers_exact": 1,
+  "marker_labels": [],
+  "answer_count": 1,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": [
+   "target_word",
+   "contextual_sense",
+   "definition_evidence"
+  ]
+ },
+ "VOC_ANL": {
+  "korean": "단어 유추",
+  "description": "두 단어의 관계와 유사한 것 (aaa:bbb)",
+  "has_contract": false,
+  "intent": "두 단어의 관계와 유사한 것 (aaa:bbb)",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "IRR": {
+  "korean": "무관한 문장",
+  "description": "글의 흐름과 무관한 문장 찾기",
+  "has_contract": true,
+  "intent": "일관된 글의 흐름에 의도적으로 삽입된 문장 하나가 담화 전개에 기여하지 않음을 판별한다.",
+  "rules": [
+   "일관된 글의 흐름에 의도적으로 삽입된 문장 하나가 담화 전개에 기여하지 않음을 판별한다."
+  ],
+  "markers_exact": 5,
+  "marker_labels": [
+   "①",
+   "②",
+   "③",
+   "④",
+   "⑤"
+  ],
+  "answer_count": 1,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "IRR_DLG": {
+  "korean": "대화 흐름 부적절",
+  "description": "여러 대화 보기 중 흐름상 부적절한 대화를 고르는 유형",
+  "has_contract": false,
+  "intent": "여러 대화 보기 중 흐름상 부적절한 대화를 고르는 유형",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "SUM": {
+  "korean": "요약문 완성",
+  "description": "요약문의 빈칸 (A)(B)에 들어갈 말",
+  "has_contract": true,
+  "intent": "원문을 압축한 요약문의 (A), (B)를 완성한다.",
+  "rules": [
+   "원문을 압축한 요약문의 (A), (B)를 완성한다.",
+   "(A) 후보는 선지 순서상 첫 후보 2회, 둘째 후보 1회, 셋째 후보 2회로 배치한다. 기본 패턴은 a, a, b, c, c이다.",
+   "같은 (A) 후보를 가진 두 선지는 서로 다른 (B) 후보와 결합한다.",
+   "같은 (A) 값이 연속되는 선지는 (B)에서 명확한 의미 대비를 만든다.",
+   "정답은 (A)와 (B)를 각각 독립적으로 검토해야만 선택할 수 있게 한다.",
+   "한쪽 빈칸만 보고 정답이 노출되지 않도록 조합을 설계한다.",
+   "원문과 별도의 [Summary] 또는 box에 두 개의 짧은 빈칸 (A), (B)를 둔다.",
+   "다섯 개의 (A)-(B) 조합 선지를 사용한다."
+  ],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "MNI_TPC": {
+  "korean": "주제",
+  "description": "글의 주제로 가장 적절한 것",
+  "has_contract": false,
+  "intent": "글의 주제로 가장 적절한 것",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "MNI_TIT": {
+  "korean": "제목",
+  "description": "글의 제목으로 가장 적절한 것",
+  "has_contract": true,
+  "intent": "글 전체를 대표하는 제목을 고른다.",
+  "rules": [
+   "글 전체를 대표하는 제목을 고른다.",
+   "다섯 개의 간결한 영어 제목을 사용하며 설명문 전체를 제목으로 사용하지 않는다."
+  ],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "MNI_GST": {
+  "korean": "요지",
+  "description": "글의 요지로 가장 적절한 것",
+  "has_contract": true,
+  "intent": "글 전체의 요지를 고른다.",
+  "rules": [
+   "글 전체의 요지를 고른다.",
+   "다섯 개의 간결하고 독립적인 영어 요지 문장을 사용한다."
+  ],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "MNI_CLM": {
+  "korean": "주장",
+  "description": "필자의 주장으로 가장 적절한 것",
+  "has_contract": false,
+  "intent": "필자의 주장으로 가장 적절한 것",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "PUR": {
+  "korean": "글의 목적",
+  "description": "필자가 글을 쓴 목적",
+  "has_contract": false,
+  "intent": "필자가 글을 쓴 목적",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "MOD": {
+  "korean": "심경/분위기",
+  "description": "등장인물의 심경 또는 글의 분위기",
+  "has_contract": false,
+  "intent": "등장인물의 심경 또는 글의 분위기",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "IMP": {
+  "korean": "함축 의미",
+  "description": "밑줄 친 부분의 함축 의미",
+  "has_contract": true,
+  "intent": "본문의 한 밑줄 표현이 문맥에서 의미하는 바를 고른다.",
+  "rules": [
+   "본문의 한 밑줄 표현이 문맥에서 의미하는 바를 고른다.",
+   "다섯 단어의 문맥상 부적절성을 묻는 VOC와 다르다.",
+   "코드 고정 발문: 밑줄 친 (A)가 글에서 의미하는 것으로 가장 적절한 것은?"
+  ],
+  "markers_exact": 1,
+  "marker_labels": [
+   "(A)"
+  ],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "CON": {
+  "korean": "내용 일치/불일치",
+  "description": "글의 내용과 일치하거나 일치하지 않는 것",
+  "has_contract": true,
+  "intent": "승인된 지문에서 명시되거나 타당하게 추론되는 세부 내용과 일치하거나 일치하지 않는 진술 하나를 판별한다.",
+  "rules": [
+   "승인된 지문에서 명시되거나 타당하게 추론되는 세부 내용과 일치하거나 일치하지 않는 진술 하나를 판별한다."
+  ],
+  "markers_exact": 0,
+  "marker_labels": [],
+  "answer_count": 1,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "PAIR_MATCH": {
+  "korean": "복합 보기 조합 선택",
+  "description": "(a)-(d) 후보 중 두 개 이상을 조합한 선지를 고르는 유형",
+  "has_contract": true,
+  "intent": "지문 안의 표지된 표현들을 하나의 제시 개념에 해당하는 완전한 집합으로 바르게 묶은 선지 하나를 판별한다.",
+  "rules": [
+   "지문 안의 표지된 표현들을 하나의 제시 개념에 해당하는 완전한 집합으로 바르게 묶은 선지 하나를 판별한다."
+  ],
+  "markers_exact": 10,
+  "marker_labels": [
+   "ⓐ",
+   "ⓑ",
+   "ⓒ",
+   "ⓓ",
+   "ⓔ",
+   "ⓕ",
+   "ⓖ",
+   "ⓗ",
+   "ⓘ",
+   "ⓙ"
+  ],
+  "answer_count": 1,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": [
+   "choice_structure"
+  ]
+ },
+ "CHT": {
+  "korean": "도표",
+  "description": "도표/그래프의 내용과 일치/불일치",
+  "has_contract": false,
+  "intent": "도표/그래프의 내용과 일치/불일치",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "NOT": {
+  "korean": "안내문",
+  "description": "안내문의 내용과 일치/불일치",
+  "has_contract": false,
+  "intent": "안내문의 내용과 일치/불일치",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "QA": {
+  "korean": "답할 수 있는 질문",
+  "description": "글을 읽고 답할 수 있는/없는 질문",
+  "has_contract": true,
+  "intent": "본문을 근거로 답할 수 없는 질문을 선택한다.",
+  "rules": [
+   "본문을 근거로 답할 수 없는 질문을 선택한다.",
+   "CON은 진술의 일치·불일치 하나를 묻고 QA는 답할 수 없는 영어 질문을 고른다.",
+   "코드 고정 발문: 주어진 글을 바탕으로 답할 수 없는 것은?"
+  ],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "LPS_TIT": {
+  "korean": "장문 제목",
+  "description": "장문 세트의 제목 문항",
+  "has_contract": false,
+  "intent": "장문 세트의 제목 문항",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "LPS_VOC": {
+  "korean": "장문 어휘",
+  "description": "장문 세트의 어휘 문항",
+  "has_contract": false,
+  "intent": "장문 세트의 어휘 문항",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "LPS_SEQ": {
+  "korean": "장문 순서",
+  "description": "장문 세트의 순서 문항",
+  "has_contract": false,
+  "intent": "장문 세트의 순서 문항",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "LPS_REF": {
+  "korean": "장문 지칭",
+  "description": "장문 세트의 지칭 추론 문항",
+  "has_contract": false,
+  "intent": "장문 세트의 지칭 추론 문항",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "LPS_CON": {
+  "korean": "장문 내용 일치",
+  "description": "장문 세트의 내용 일치 문항",
+  "has_contract": false,
+  "intent": "장문 세트의 내용 일치 문항",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "LST_PUR": {
+  "korean": "듣기 목적",
+  "description": "",
+  "has_contract": false,
+  "intent": "",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "LST_OPN": {
+  "korean": "듣기 의견",
+  "description": "",
+  "has_contract": false,
+  "intent": "",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "LST_LOC": {
+  "korean": "듣기 장소/관계",
+  "description": "",
+  "has_contract": false,
+  "intent": "",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "LST_VIS": {
+  "korean": "듣기 그림 일치",
+  "description": "그림과 대화 내용의 일치/불일치",
+  "has_contract": false,
+  "intent": "그림과 대화 내용의 일치/불일치",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "LST_RSP": {
+  "korean": "듣기 응답",
+  "description": "할 일/요청/적절한 응답",
+  "has_contract": false,
+  "intent": "할 일/요청/적절한 응답",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "LST_AMT": {
+  "korean": "듣기 금액/수량",
+  "description": "",
+  "has_contract": false,
+  "intent": "",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "LST_RSN": {
+  "korean": "듣기 이유",
+  "description": "",
+  "has_contract": false,
+  "intent": "",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "LST_NMT": {
+  "korean": "듣기 언급되지 않은 것",
+  "description": "",
+  "has_contract": false,
+  "intent": "",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "LST_CON": {
+  "korean": "듣기 내용 일치",
+  "description": "",
+  "has_contract": false,
+  "intent": "",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "LST_CHT": {
+  "korean": "듣기 도표 일치",
+  "description": "표 보면서 대화 내용 일치",
+  "has_contract": false,
+  "intent": "표 보면서 대화 내용 일치",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "LST_SET": {
+  "korean": "듣기 세트",
+  "description": "듣기 세트 문항 (예: 16-17)",
+  "has_contract": false,
+  "intent": "듣기 세트 문항 (예: 16-17)",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "ANL": {
+  "korean": "유추",
+  "description": "단어/문장 관계 유추 (단독 출제)",
+  "has_contract": false,
+  "intent": "단어/문장 관계 유추 (단독 출제)",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "OEQ_BLK": {
+  "korean": "서답형 빈칸",
+  "description": "객관식 아닌 빈칸 채우기",
+  "has_contract": false,
+  "intent": "객관식 아닌 빈칸 채우기",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "free_text",
+  "auxiliary": []
+ },
+ "OEQ_ANS": {
+  "korean": "단답형",
+  "description": "특정 정보를 단어/구로 답",
+  "has_contract": true,
+  "intent": "승인된 지문에서 특정 정보를 찾아 한 단어 또는 짧은 구로 직접 답한다.",
+  "rules": [
+   "승인된 지문에서 특정 정보를 찾아 한 단어 또는 짧은 구로 직접 답한다."
+  ],
+  "markers_exact": 0,
+  "marker_labels": [],
+  "answer_count": 1,
+  "choice_count": 0,
+  "answer_form": "free_text",
+  "auxiliary": [
+   "accepted_variants",
+   "grading_note",
+   "target_pattern"
+  ]
+ },
+ "OEQ_SUM": {
+  "korean": "서답형 요약",
+  "description": "글을 직접 요약하여 작성",
+  "has_contract": false,
+  "intent": "글을 직접 요약하여 작성",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "free_text",
+  "auxiliary": []
+ },
+ "OEQ_TRN": {
+  "korean": "번역",
+  "description": "한국어↔영어 번역 답안",
+  "has_contract": false,
+  "intent": "한국어↔영어 번역 답안",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "free_text",
+  "auxiliary": []
+ },
+ "OEQ_REW": {
+  "korean": "재작성",
+  "description": "주어진 단어/구로 문장 재구성",
+  "has_contract": false,
+  "intent": "주어진 단어/구로 문장 재구성",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "free_text",
+  "auxiliary": []
+ },
+ "OEQ_ESS": {
+  "korean": "작문",
+  "description": "에세이/단락 글쓰기",
+  "has_contract": false,
+  "intent": "에세이/단락 글쓰기",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "free_text",
+  "auxiliary": []
+ },
+ "OEQ_QA": {
+  "korean": "서답형 질의응답",
+  "description": "지문 기반 질문에 직접 답안 작성",
+  "has_contract": true,
+  "intent": "승인된 지문에 관한 명시적 질문에 지문 근거를 포함한 직접적인 문장 답변을 작성한다.",
+  "rules": [
+   "승인된 지문에 관한 명시적 질문에 지문 근거를 포함한 직접적인 문장 답변을 작성한다."
+  ],
+  "markers_exact": 0,
+  "marker_labels": [],
+  "answer_count": 1,
+  "choice_count": 0,
+  "answer_form": "free_text",
+  "auxiliary": [
+   "accepted_variants",
+   "grading_note",
+   "target_pattern"
+  ]
+ },
+ "OEQ_GRM": {
+  "korean": "서답형 어법 고치기",
+  "description": "밑줄 친 어법 오류를 직접 고쳐 쓰기",
+  "has_contract": false,
+  "intent": "밑줄 친 어법 오류를 직접 고쳐 쓰기",
+  "rules": [],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "free_text",
+  "auxiliary": []
+ },
+ "GRM_MULTI": {
+  "korean": "복수 선택 어법",
+  "description": "본문의 짧은 어법 구 여러 개 중 오류를 모두 또는 정해진 개수만큼 고르는 유형",
+  "has_contract": true,
+  "intent": "다섯 개의 짧은 어법 대상 중 둘 이상의 오류를 모두 선택한다.",
+  "rules": [
+   "다섯 개의 짧은 어법 대상 중 둘 이상의 오류를 모두 선택한다.",
+   "본문의 ①~⑤ 원번호와 대상 구 전체를 bold+underline으로 렌더링하고, 선지는 같은 문자열을 그대로 재현한다.",
+   "기본 평가 단위는 절이나 문장 전체가 아니라 문법 관계가 드러나는 매우 짧은 구이다.",
+   "to처럼 기능어 한 단어만 단독으로 선택하지 않는다.",
+   "to search처럼 to부정사 전체, of which처럼 전치사+관계대명사, searching for처럼 분사+보어를 함께 선택한다.",
+   "수일치는 주어와 동사의 관계를 판단할 수 있도록 동사구 또는 최소한 의미 있는 결합 단위를 선택한다.",
+   "긴 절·문장 단위 표적은 실제 reference item이 요구하는 명시적 profile에서만 예외적으로 허용한다.",
+   "틀린 것을 모두 고르시오 또는 틀린 것의 정확한 개수를 명시한다."
+  ],
+  "markers_exact": 5,
+  "marker_labels": [
+   "①",
+   "②",
+   "③",
+   "④",
+   "⑤"
+  ],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "CON_CNT": {
+  "korean": "옳은 진술 개수",
+  "description": "복수 진술 중 옳은 진술의 개수를 고르는 유형",
+  "has_contract": true,
+  "intent": "다섯 개 이상의 진술을 판정한 뒤 옳은 진술 개수를 고른다.",
+  "rules": [
+   "다섯 개 이상의 진술을 판정한 뒤 옳은 진술 개수를 고른다.",
+   "코드 고정 발문: 글(A)와 (B)에 대한 진술로 옳은 것의 개수는?",
+   "가능한 개수 값 5개를 선지로 사용한다. 선지 ①~⑤의 text 1개~5개와 정답 라벨은 코드가 truth 개수로 계산해 만든다."
+  ],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "APL_CPT": {
+  "korean": "개념 사례 적용",
+  "description": "본문의 핵심 개념을 독립된 외부 사례에 적용하는 유형",
+  "has_contract": true,
+  "intent": "본문의 핵심 개념을 서로 독립된 외부 사례에 적용한다.",
+  "rules": [
+   "본문의 핵심 개념을 서로 독립된 외부 사례에 적용한다.",
+   "다섯 선지는 서로 독립된 영어 사례이며 정확히 하나만 polarity를 만족한다."
+  ],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "APL_CMB": {
+  "korean": "개념 적용 보기 조합",
+  "description": "본문의 개념을 복수 보기 진술에 적용하고 해당 진술 조합을 고르는 유형",
+  "has_contract": true,
+  "intent": "본문 개념을 복수 진술에 적용하고 해당 진술 조합을 고른다.",
+  "rules": [
+   "본문 개념을 복수 진술에 적용하고 해당 진술 조합을 고른다.",
+   "각 선지는 보기 라벨 2~4개의 서로 다른 조합이며, 정답은 해당하는 모든 보기만 포함한다."
+  ],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": 5,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "VOC_PSG_SYN": {
+  "korean": "문단 속 한 단어 동의어",
+  "description": "여러 문장 문단의 표적 단어 하나에 대한 문맥상 동의어를 고르는 유형",
+  "has_contract": true,
+  "intent": "여러 문장으로 된 문단 속 한 단어의 문맥상 동의어를 고른다.",
+  "rules": [
+   "여러 문장으로 된 문단 속 한 단어의 문맥상 동의어를 고른다.",
+   "VOC는 밑줄 5개 중 부적절한 어휘를 찾고, VOC_SNT는 한 문장만 사용하며, VOC_WRD는 문단 없이 단독 단어를 제시하고, IMP는 표현의 함축 의미를 묻는다.",
+   "표적은 문단 안에 실제로 존재하는 내용어 한 단어여야 한다.",
+   "구·절·숙어처럼 둘 이상의 단어를 하나의 표적으로 묶지 않는다.",
+   "주변 문장들이 표적 단어의 의미를 추론할 충분한 문맥을 제공해야 한다.",
+   "표적 단어 하나만 굵게 밑줄로 표시하고 VOC의 ①~⑤ 다중 표적 번호는 붙이지 않는다.",
+   "다섯 선지는 모두 한 단어로 작성한다.",
+   "정답은 표적 단어의 해당 문맥에서의 동의어여야 한다."
+  ],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "VOC_XWD": {
+  "korean": "크로스워드 어휘 판별",
+  "description": "가로·세로 단서와 교차 글자 제약을 만족하지 않는 어휘를 고르는 유형",
+  "has_contract": true,
+  "intent": "가로·세로 단서와 교차 글자 제약을 함께 풀어 크로스워드에 들어갈 수 없는 단어를 고른다.",
+  "rules": [
+   "가로·세로 단서와 교차 글자 제약을 함께 풀어 크로스워드에 들어갈 수 없는 단어를 고른다.",
+   "VOC_DEF는 정의-단어 대응만 검사하지만 VOC_XWD는 단서 의미와 퍼즐 격자의 교차 제약을 동시에 검사한다."
+  ],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "NOT_MULTI": {
+  "korean": "복수 실용문 내용 비교",
+  "description": "독립된 실용문 두 개의 내용을 비교하는 유형",
+  "has_contract": true,
+  "intent": "서로 독립된 형식의 실용문 (A), (B)를 읽고 두 자료의 내용을 비교한 진술 하나를 판별한다.",
+  "rules": [
+   "서로 독립된 형식의 실용문 (A), (B)를 읽고 두 자료의 내용을 비교한 진술 하나를 판별한다.",
+   "NOT는 하나의 안내문 또는 실용문만 읽어 내용 일치·불일치를 판별한다.",
+   "CON은 두 개의 독립적으로 형식화된 실용문 (A), (B)의 비교를 요구하지 않는 일반 내용 일치·불일치 유형이다."
+  ],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": 1,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "VOC_REPL": {
+  "korean": "문맥 어휘 대체 표현",
+  "description": "본문의 밑줄 표현과 대체 표현의 짝 중 문맥상 부적절한 것을 고르는 유형",
+  "has_contract": true,
+  "intent": "본문의 밑줄 친 표현 다섯 개와 제안된 대체 표현의 짝 중 문맥상 적절하지 않은 하나를 판별한다.",
+  "rules": [
+   "본문의 밑줄 친 표현 다섯 개와 제안된 대체 표현의 짝 중 문맥상 적절하지 않은 하나를 판별한다.",
+   "VOC는 밑줄 친 원문 단어 다섯 개 중 부적절한 원문 단어를 고르며 대체 표현 짝이 없다.",
+   "VOC_PSG_SYN은 문단 속 표적 하나의 동의어를 다섯 선지에서 고른다.",
+   "VOC_CTX는 (A)(B)(C) 대안 어휘 조합을 고르며 다섯 개의 원문 표현-대체 표현 짝을 사용하지 않는다."
+  ],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": 1,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": []
+ },
+ "INF_CMB_MULTI": {
+  "korean": "복수 지문 결합 추론",
+  "description": "복수 지문에서 추론할 수 없는 진술을 모두 고르는 복수정답 유형",
+  "has_contract": true,
+  "intent": "승인된 지문에서 명시되거나 타당하게 추론되는 세부 내용 중 추론할 수 없는 진술을 모두 판별한다.",
+  "rules": [
+   "승인된 지문에서 명시되거나 타당하게 추론되는 세부 내용 중 추론할 수 없는 진술을 모두 판별한다."
+  ],
+  "markers_exact": 0,
+  "marker_labels": [],
+  "answer_count": null,
+  "choice_count": null,
+  "answer_form": "multiple",
+  "auxiliary": []
+ },
+ "GRM_CNT": {
+  "korean": "문법 특징 개수",
+  "description": "표시된 문장 집합에서 지정된 문법 특징을 만족하는 문장의 전체 개수를 고르는 유형",
+  "has_contract": true,
+  "intent": "표시된 문장 집합에서 지정된 문법 특징을 만족하는 문장의 전체 개수를 고른다.",
+  "rules": [
+   "표시된 문장 집합에서 지정된 문법 특징을 만족하는 문장의 전체 개수를 고른다."
+  ],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": 1,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": [
+   "grammar_feature",
+   "sentence_judgments"
+  ]
+ },
+ "GRM_CMB": {
+  "korean": "문법 문장 조합",
+  "description": "문장 집합에서 문법 조건을 만족하는 모든 문장의 조합 선지를 고르는 유형",
+  "has_contract": true,
+  "intent": "표시된 문장 집합에서 문법 조건을 만족하는 모든 문장의 조합 선지를 고른다.",
+  "rules": [
+   "표시된 문장 집합에서 문법 조건을 만족하는 모든 문장의 조합 선지를 고른다."
+  ],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": 1,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": [
+   "grammar_feature",
+   "sentence_judgments"
+  ]
+ },
+ "GRM_CPT": {
+  "korean": "문법 개념 분류",
+  "description": "관찰된 문장 또는 오류를 설명하는 문법 개념이나 규칙을 고르는 유형",
+  "has_contract": true,
+  "intent": "관찰된 문장 또는 오류를 가장 정확히 설명하는 문법 개념이나 규칙을 고른다.",
+  "rules": [
+   "관찰된 문장 또는 오류를 가장 정확히 설명하는 문법 개념이나 규칙을 고른다."
+  ],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": 1,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": [
+   "target_references",
+   "grammar_concept",
+   "rule_evidence"
+  ]
+ },
+ "SNT_ORD": {
+  "korean": "문장 조각 배열",
+  "description": "표의 단어·구 조각을 배열해 하나 이상의 완전한 문장을 복원하는 유형",
+  "has_contract": true,
+  "intent": "표의 단어·구 조각을 순서대로 배열해 하나 이상의 완전한 문장을 복원한다.",
+  "rules": [
+   "표의 단어·구 조각을 순서대로 배열해 하나 이상의 완전한 문장을 복원한다."
+  ],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": 1,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": [
+   "token_rows",
+   "canonical_orders"
+  ]
+ },
+ "VIS_CON": {
+  "korean": "시각 자료 내용 판별",
+  "description": "문장과 그림·도표의 구조화된 사실을 함께 대조해 일치 여부를 고르는 유형",
+  "has_contract": true,
+  "intent": "완성된 문장과 그림·도표의 구조화된 사실을 대조해 불일치 문장 하나를 고른다.",
+  "rules": [
+   "완성된 문장과 그림·도표의 구조화된 사실을 대조해 불일치 문장 하나를 고른다."
+  ],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": 1,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": [
+   "visual_asset",
+   "spatial_facts",
+   "sentence_fact_map"
+  ]
+ },
+ "VIS_SNT_ASM": {
+  "korean": "시각 자료 문장 조립",
+  "description": "표의 조각을 조립해 문법적으로 완전하고 시각 자료의 사실에도 맞는 문장을 고르는 유형",
+  "has_contract": true,
+  "intent": "표의 조각을 조립해 문법적으로 완전하고 시각 자료의 사실에도 맞는 문장을 고른다.",
+  "rules": [
+   "표의 조각을 조립해 문법적으로 완전하고 시각 자료의 사실에도 맞는 문장을 고른다."
+  ],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": 1,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": [
+   "visual_asset",
+   "spatial_facts",
+   "token_grid",
+   "assembled_choices"
+  ]
+ },
+ "SEQ_RNK": {
+  "korean": "의미 기준 순위 배열",
+  "description": "완성된 문장들을 명시된 의미 축에 따라 순위화한 순서를 고르는 유형",
+  "has_contract": true,
+  "intent": "완성된 문장들을 명시된 의미 축에 따라 완전 순위로 배열한 선지를 고른다.",
+  "rules": [
+   "완성된 문장들을 명시된 의미 축에 따라 완전 순위로 배열한 선지를 고른다."
+  ],
+  "markers_exact": null,
+  "marker_labels": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E"
+  ],
+  "answer_count": 1,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": [
+   "ranking_axis",
+   "sentence_scores",
+   "tie_break_evidence"
+  ]
+ },
+ "VIS_CON_CMB": {
+  "korean": "시각 자료 오류 조합",
+  "description": "여러 문장을 시각 자료와 각각 대조한 뒤 불일치 문장 전체의 조합을 고르는 유형",
+  "has_contract": true,
+  "intent": "여러 문장을 시각 자료와 각각 대조한 뒤 불일치 문장 전체의 조합을 고른다.",
+  "rules": [
+   "여러 문장을 시각 자료와 각각 대조한 뒤 불일치 문장 전체의 조합을 고른다."
+  ],
+  "markers_exact": null,
+  "marker_labels": [],
+  "answer_count": 1,
+  "choice_count": null,
+  "answer_form": "single",
+  "auxiliary": [
+   "visual_asset",
+   "spatial_facts",
+   "sentence_fact_map"
+  ]
+ }
+}
