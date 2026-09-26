@@ -201,7 +201,7 @@ def check(rule: str, it: Item, typ: str) -> tuple[str, str]:
             return _res("skip", "지문 없음")
         return _res("pass", f"{n}단어") if lo <= n <= hi else _res("warn", f"{n}단어 (보통 {lo}~{hi})")
     if rule == "stem_clear":
-        return _res("pass", "발문으로 유형을 알 수 있음") if detect_type(it.stem) else _res("warn", "발문에 유형을 알려 주는 말이 없습니다")
+        return _res("pass", "발문으로 유형을 알 수 있음") if detect_type(it.stem) else _res("skip", "자주 쓰는 발문 표현이 아니라 유형을 발문만으로 정하지 못했습니다")
     if rule == "negative_stem":
         neg = re.search(r"않은|않는|틀린|아닌|NOT|없는", it.stem)
         if not neg:
@@ -363,12 +363,13 @@ def ai_rows(it: Item, code: str, review: dict | None) -> list[dict]:
                          "pass" if oa == "none" else "warn",
                          "다른 답은 만점이 어렵다고 봤습니다" if oa == "none" else ("다른 표현도 정답이 될 수 있다고 봤습니다 — 허용 답안을 적어 두세요" if oa == "some" else "정답이 될 표현이 많다고 봤습니다 — 조건을 더 좁히세요"), True))
     if review.get("stem_clear") == "no":
-        rows.append(_row("stem_ai", "발문 명확성", "발문만 읽고 무엇을 묻는지 알 수 있어야 합니다.", "warn", "AI가 발문이 모호하다고 봤습니다", True))
+        rows.append(_row("stem_ai", "발문 명확성", "발문만 읽고 무엇을 묻는지 알 수 있어야 합니다.", "warn", "발문만 읽어서는 무엇을 고르라는 건지 분명하지 않습니다", True))
     rules = info.get("rules") or [info.get("intent") or info.get("description", "")]
     for k, (text, vd) in enumerate(zip(rules, review.get("rule_verdicts", []))):
-        short = text if len(text) <= 42 else text[:41] + "…"
-        rows.append(_row(f"contract_rule_{k + 1}", short, text, {"met": "pass", "violated": "warn", "unsure": "skip"}[vd],
-                         {"met": "유형 규격을 지킴", "violated": "유형 규격에 어긋난다고 봤습니다", "unsure": "판단 보류"}[vd], True))
+        rows.append(_row(f"contract_rule_{k + 1}", {"met": "유형 규격 충족", "violated": "유형 규격과 다름", "unsure": "유형 규격 판단 보류"}[vd],
+                         text, {"met": "pass", "violated": "warn", "unsure": "skip"}[vd],
+                         {"met": f"지킴: {text}", "violated": f"이 유형은 이렇게 만들어야 합니다 — {text}  AI가 보기에 이 문제는 여기에 맞지 않습니다.",
+                          "unsure": f"AI가 확실히 판단하지 못했습니다 — {text}"}[vd], True))
     return rows
 
 
@@ -399,7 +400,11 @@ def run(text: str, ai=None) -> dict:
             rows = [r for r in rows if r["id"] != "numbered_markers"]  # the contract count is the authority
         rows += crows
         if ai and code in REG:
-            rows += ai_rows(it, code, ai.judge(it, code))
+            review = ai.judge(it, code)
+            if review:
+                # the AI reads the stem itself (stem_ai); the phrase list only knows common wordings
+                rows = [r for r in rows if r["id"] != "stem_clear"]
+            rows += ai_rows(it, code, review)
         info = REG.get(code, {})
         out.append({"index": n, "number": it.number, "type": code, "type_label": info.get("korean", TYPES.get(fam, "기타")),
                     "type_intent": info.get("intent", ""), "type_source": source, "has_contract": info.get("has_contract", False),
